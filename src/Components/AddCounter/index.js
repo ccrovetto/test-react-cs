@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.scss';
+import { Input, Button, Form, FormGroup, Label } from 'reactstrap';
 
 class CounterAddForm extends React.Component {
   constructor(props) {
@@ -26,13 +27,15 @@ class CounterAddForm extends React.Component {
     const { title } = this.state;
 
      return (
-      <form action="#" onSubmit={this.handleSubmit}>
-        <fieldset>
-          <label htmlFor="title">Titulo</label>
-          <input type="text" name="title" id="title" value={title} onChange={this.handleChange}/>
-          <button type="submit">Agregar</button>
-        </fieldset>
-      </form>
+      <Form action="#" onSubmit={this.handleSubmit}>
+        <FormGroup>
+          
+        <Label htmlFor="title">Titulo</Label>
+        <Input type="text" name="title" id="title" value={title} onChange={this.handleChange}  />
+          <Button className="my-2" color="primary">Agregar</Button>
+        </FormGroup>
+          
+      </Form>
     );
   }
 }

@@ -1,5 +1,6 @@
 import React from '../../../node_modules/react';
 import { connect } from '../../../node_modules/react-redux';
+import { Jumbotron, Row, Col } from 'reactstrap';
 import {
   getCounters,
   addCounter,
@@ -49,14 +50,29 @@ class Body extends React.Component {
 
     return (
       <div className="body">
+        <Jumbotron >
+        <h1 className="display-3">Bienvenido a CounterTest!</h1>
+        <p className="lead">Este es un test de contadores para cornershop</p>
+        <hr className="my-2" />
+        <Row>
+        <Col xs="6">
         <CounterAddForm onSubmit={this.handleAddCounter} />
+        </Col>
+        <Col xs="6">
         <CounterList
           countersState={counters}
           onOrder={this.handleOrderBy}
-          onDecreaseItem={this.handleDecrease}
-          onIncreaseItem={this.handleIncrease}
-          onRemoveItem={this.handleRemove} />
+          onDecrease={this.handleDecrease}
+          onIncrease={this.handleIncrease}
+          onRemove={this.handleRemove} />
+        </Col>
+      </Row>
+        
+        
+      
+      </Jumbotron>
       </div>
+        
     );
   }
 }

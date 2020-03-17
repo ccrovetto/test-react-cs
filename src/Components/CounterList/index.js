@@ -1,7 +1,7 @@
 import React from 'react';
-import CounterItem from '../CounterItem'
 import CounterFilter from '../CounterFilter'
 import './style.scss';
+import { Table, Button } from 'reactstrap';
 
 class CounterList extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class CounterList extends React.Component {
   }
 
   handleChange = e => {
-    this.setState({filterValue: e.target.value})
+    this.setState({ filterValue: e.target.value })
   }
 
   getTotalCounts = () => {
@@ -44,11 +44,11 @@ class CounterList extends React.Component {
     if (rule === 'title') {
       return data.filter(item => item.title.indexOf(filterValue) >= 0);
     }
-    
+
     if (rule === 'min' && parseInt(filterValue, 10)) {
       return data.filter(item => item.count < parseInt(filterValue, 10));
     }
-    
+
     if (rule === 'max' && parseInt(filterValue, 10)) {
       return data.filter(item => item.count > parseInt(filterValue, 10));
     }
@@ -58,7 +58,7 @@ class CounterList extends React.Component {
 
   render() {
     const { filterValue, filterRules, indexRule } = this.state;
-    const { countersState, onOrder, onDecreaseItem, onIncreaseItem, onRemoveItem} = this.props;
+    const {  countersState, onOrder, onDecrease, onIncrease, onRemove } = this.props;
     const { isLoading } = countersState;
     return (
       <div className="counter-list">
@@ -70,19 +70,28 @@ class CounterList extends React.Component {
         />
         <button type="button" onClick={e => onOrder()}>Ordenar por nombre</button>
         <button type="button" onClick={e => onOrder('count')}>Ordenar por cantidad</button>
-        <ul className="counter-list__inner">
-          {this.getFilteredData().map(item => (
-            <li className="counter-list__item" key={item.id}>
-              <CounterItem
-                data={item}
-                disabled={isLoading}
-                onDecrease={onDecreaseItem}
-                onIncrease={onIncreaseItem}
-                onRemove={onRemoveItem}
-              ></CounterItem>
-            </li>
-          ))}
-        </ul>
+        <Table hover responsive>
+          <thead>
+            <tr>
+              <th>Titulo</th>
+              <th>Contadores</th>
+              <th></th>
+              <th>Acciones</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.getFilteredData().map(item => (
+              <tr className="counter-list__item" key={item.id}>
+                <td>{item.title}</td>
+                <td>{item.count}</td>
+                <td><Button color="warning" onClick={e => onDecrease(item.id)}>1-</Button></td>
+                <td><Button color="success" onClick={e => onIncrease(item.id)}>1+</Button></td>
+                <td><Button color="danger" onClick={e => onRemove(item.id)}>Eliminar</Button></td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
         <h4 className="counter-list__total">Total {this.getTotalCounts()}</h4>
       </div>
     )
