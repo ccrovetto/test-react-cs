@@ -1,8 +1,7 @@
 # Cornershop Frontend Test
 
 ## Before you begin
-You will need to create a repository using the base project that we provided. After this, upload it to Github, and invite 
-@Galitisrael and @varellanov as collaborators. 
+You will need to create a repository using the base project that we provided and invite as collaborators: @daslaf @fyanezv @redthree @raerpo @erasmo-marin
 
 ## The Test
 You need to create a simple counter application that can do the following:

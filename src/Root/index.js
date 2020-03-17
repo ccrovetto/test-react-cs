@@ -1,9 +1,9 @@
-import React from 'react';
-import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import { logger } from 'redux-logger';
-import reducers from '../Store/Reducers';
+import React from './node_modules/react';
+import { Provider } from './node_modules/react-redux'
+import { createStore, applyMiddleware } from './node_modules/redux';
+import thunk from './node_modules/redux-thunk';
+import { logger } from './node_modules/redux-logger';
+import reducers from '../store/reducers';
 import Body from '../Containers/Body';
 import './style.scss';
 
@@ -19,9 +19,10 @@ function Root() {
   return (
     <Provider store={store}>
       <div className="root">
-        <h1>Initial View</h1>
-        <Body/>
+        <Body />
       </div>
     </Provider>
   );
 }
+
+export default Root;

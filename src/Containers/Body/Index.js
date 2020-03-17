@@ -1,14 +1,14 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from './node_modules/react';
+import { connect } from './node_modules/react-redux';
 import {
   getCounters,
   addCounter,
   removeCounter,
   setCounter,
   setOrder
-} from '../../Store/Actions/Counters';
-import CounterAddForm from '../../Components/AddCounter';
-import CounterList from '../../components/CounterList';
+} from '../../store/actions/counters';
+import CounterAddForm from '../../components/counter-add-form';
+import CounterList from '../../components/counter-list';
 import './style.scss';
 
 class Body extends React.Component {

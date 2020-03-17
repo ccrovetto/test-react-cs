@@ -12,7 +12,7 @@ import {
   REMOVE_COUNTER_ERROR,
   REMOVE_COUNTER_SUCCESS,
   SET_ORDER,
-} from '../Actions/Counters';
+} from './../actions/counters';
 
 const initialState = {
   data: [],
