@@ -1,5 +1,5 @@
-import React from './node_modules/react';
-import { connect } from './node_modules/react-redux';
+import React from '../../../node_modules/react';
+import { connect } from '../../../node_modules/react-redux';
 import {
   getCounters,
   addCounter,
@@ -7,8 +7,8 @@ import {
   setCounter,
   setOrder
 } from '../../store/actions/counters';
-import CounterAddForm from '../../components/counter-add-form';
-import CounterList from '../../components/counter-list';
+import CounterAddForm from '../../components/AddCounter';
+import CounterList from '../../components/CounterList';
 import './style.scss';
 
 class Body extends React.Component {
