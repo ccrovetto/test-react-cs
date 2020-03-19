@@ -1,18 +1,16 @@
 import React from 'react';
-import './style.scss';
+import { Input, Button, Form, FormGroup, Label } from 'reactstrap';
 
 class CounterFilter extends React.Component {
   render() {
     const { filterValue, onChange, rule } = this.props;
 
     return (
-      <div className="counter-search-form">
-        <form action="#" className="counter-search-form__inner">
-          <fieldset>
-            <label htmlFor="filterValue">{rule.title}</label>
-            <input type="text" name="filterValue" id="filterValue" value={filterValue} onChange={onChange}/>
-          </fieldset>
-        </form>
+      <div>
+          <FormGroup>
+            <Label htmlFor="filterValue">Buscar</Label>
+            <Input className="md" type="text" name="filterValue" id="filterValue" value={filterValue} onChange={onChange}></Input>
+          </FormGroup>
       </div>
     );
   }

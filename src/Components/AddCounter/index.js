@@ -1,5 +1,4 @@
 import React from 'react';
-import './style.scss';
 import { Input, Button, Form, FormGroup, Label } from 'reactstrap';
 
 class CounterAddForm extends React.Component {

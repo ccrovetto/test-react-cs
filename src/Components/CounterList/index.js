@@ -1,7 +1,6 @@
 import React from 'react';
 import CounterFilter from '../CounterFilter'
-import './style.scss';
-import { Table, Button } from 'reactstrap';
+import { Table, Button, Form, Label, Row, Col, FormGroup } from 'reactstrap';
 
 class CounterList extends React.Component {
   constructor(props) {
@@ -58,18 +57,28 @@ class CounterList extends React.Component {
 
   render() {
     const { filterValue, filterRules, indexRule } = this.state;
-    const {  countersState, onOrder, onDecrease, onIncrease, onRemove } = this.props;
+    const { countersState, onOrder, onDecrease, onIncrease, onRemove } = this.props;
     const { isLoading } = countersState;
     return (
       <div className="counter-list">
-        <CounterFilter
-          rules=""
-          rule={filterRules[indexRule]}
-          searchPhrase={filterValue}
-          onChange={this.handleChange}
-        />
-        <button type="button" onClick={e => onOrder()}>Ordenar por nombre</button>
-        <button type="button" onClick={e => onOrder('count')}>Ordenar por cantidad</button>
+        <Row Form>
+          <Col md={6}>
+            <CounterFilter
+              rules=""
+              rule={filterRules[indexRule]}
+              searchPhrase={filterValue}
+              onChange={this.handleChange}
+            />
+            <FormGroup>
+                <Label htmlFor="btnf">Filtrar Por:</Label>
+                <Button id="btnf" type="button" onClick={e => onOrder()}>Nombre</Button>
+            </FormGroup>
+            <FormGroup>
+                <Label htmlFor="btn"></Label>
+                <Button id="btn" type="button" onClick={e => onOrder('count')}>Cantidad</Button>
+            </FormGroup>
+          </Col>
+        </Row>
         <Table hover responsive>
           <thead>
             <tr>
