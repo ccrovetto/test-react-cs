@@ -5,7 +5,6 @@ import thunk from '../../node_modules/redux-thunk';
 import { logger } from '../../node_modules/redux-logger';
 import reducers from '../store/reducers';
 import Body from '../Containers/Body';
-import './style.scss';
 
 let store = createStore(
   reducers,

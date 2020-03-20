@@ -10,7 +10,6 @@ import {
 } from '../../store/actions/counters';
 import CounterAddForm from '../../components/AddCounter';
 import CounterList from '../../components/CounterList';
-import './style.scss';
 
 class Body extends React.Component {
   constructor(props) {

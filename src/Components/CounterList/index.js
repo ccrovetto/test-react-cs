@@ -69,13 +69,16 @@ class CounterList extends React.Component {
               searchPhrase={filterValue}
               onChange={this.handleChange}
             />
-            <FormGroup>
+          </Col>
+          <Col md={2}>
+          <FormGroup>
                 <Label htmlFor="btnf">Filtrar Por:</Label>
                 <Button id="btnf" type="button" onClick={e => onOrder()}>Nombre</Button>
             </FormGroup>
-            <FormGroup>
-                <Label htmlFor="btn"></Label>
-                <Button id="btn" type="button" onClick={e => onOrder('count')}>Cantidad</Button>
+          </Col>
+          <Col md={2}>
+          <FormGroup className="mt-2">
+                <Button className="mt-4" id="btn" type="button" onClick={e => onOrder('count')}>Cantidad</Button>
             </FormGroup>
           </Col>
         </Row>
@@ -91,7 +94,7 @@ class CounterList extends React.Component {
           </thead>
           <tbody>
             {this.getFilteredData().map(item => (
-              <tr className="counter-list__item" key={item.id}>
+              <tr  key={item.id}>
                 <td>{item.title}</td>
                 <td>{item.count}</td>
                 <td><Button color="warning" onClick={e => onDecrease(item.id)}>1-</Button></td>
